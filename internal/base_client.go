@@ -5,12 +5,10 @@ import (
 	"crypto/rsa"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"github.com/go-resty/resty"
 	"gocapitalist/requests"
 	"gocapitalist/responses"
 	"math/big"
-	"strconv"
 	"time"
 )
 
@@ -87,14 +85,12 @@ func (r *BaseClient) SetAuth(login, plainPassword string) error {
 	IntModulus := new(big.Int)
 	IntModulus.SetString(data.Data.Modulus, 16)
 
-	IntExponent, err := strconv.Atoi(data.Data.Exponent)
-	if err != nil {
-		return err
-	}
+	IntExponent := new(big.Int)
+	IntExponent.SetString(data.Data.Exponent, 16)
 
 	pubkey := rsa.PublicKey{
 		N: IntModulus,
-		E: IntExponent,
+		E: int(IntExponent.Int64()),
 	}
 
 	encryptedPassword, err := rsa.EncryptPKCS1v15(rand.Reader, &pubkey, []byte(plainPassword))
@@ -108,8 +104,6 @@ func (r *BaseClient) SetAuth(login, plainPassword string) error {
 		EncryptedPassword:    hex.EncodeToString(encryptedPassword),
 		rsaPublicKeyPkcs1Pem: data.Data.RsaPublicKeyPkcs1Pem,
 	}
-
-	fmt.Println(r.Auth.EncryptedPassword)
 
 	return nil
 }
