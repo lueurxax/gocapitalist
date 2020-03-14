@@ -2,6 +2,8 @@ package gocapitalist
 
 import (
 	"gocapitalist/defaults"
+	"gocapitalist/getBatchInfo"
+	"gocapitalist/importBatchAdvanced"
 	"gocapitalist/internal"
 	"gocapitalist/сurrencyRates"
 )
@@ -9,6 +11,8 @@ import (
 type AClient struct {
 	bc *internal.BaseClient
 	сurrencyRates.Currency
+	getBatchInfo.BatchInfo
+	importBatchAdvanced.ImportBatchAdvanced
 }
 
 func New(url string, logger internal.Logger, mc internal.MetricsCollector) *AClient {
@@ -20,8 +24,10 @@ func New(url string, logger internal.Logger, mc internal.MetricsCollector) *ACli
 	}
 	bc := internal.NewBaseClient(url, logger, mc)
 	return &AClient{
-		Currency: сurrencyRates.Currency{bc},
-		bc:       bc}
+		Currency:            сurrencyRates.Currency{bc},
+		BatchInfo:           getBatchInfo.BatchInfo{bc},
+		ImportBatchAdvanced: importBatchAdvanced.ImportBatchAdvanced{bc},
+		bc:                  bc}
 }
 
 func (ac *AClient) SetAuth(login, password string) error {
