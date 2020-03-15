@@ -1,4 +1,4 @@
-package getBatchInfo
+package getAccounts
 
 import (
 	"gocapitalist/internal"
@@ -6,15 +6,15 @@ import (
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type GetAccounts struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/get_accounts
+func (b *GetAccounts) Get() (*responses.GetAccounts, error) {
+	data, errResponse := new(responses.GetAccounts), new(responses.ErrorResponse)
 
-	httpParams, logParams := request.Params()
+	httpParams, logParams := (&requests.GetAccounts{}).Params()
 	for k, v := range b.Auth.ParamsForAuth {
 		httpParams[k] = v
 	}

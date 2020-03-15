@@ -12,8 +12,8 @@ func (r *PasswordRecovery) Params() (map[string]string, map[string]interface{}) 
 		return params, logParams
 	}
 
-	logParams["operation"] = "get_token"
-	params["operation"] = "get_token"
+	logParams["operation"] = "password_recovery"
+	params["operation"] = "password_recovery"
 
 	if r.EncryptedPassword != "" {
 		logParams["encrypted_password"] = r.EncryptedPassword

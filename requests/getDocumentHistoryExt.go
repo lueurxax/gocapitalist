@@ -23,15 +23,15 @@ func (r *DocumentHistory) Params() (map[string]string, map[string]interface{}) {
 		return params, logParams
 	}
 
-	logParams["operation"] = "get_token"
-	params["operation"] = "get_token"
+	logParams["operation"] = "get_documents_history_ext"
+	params["operation"] = "get_documents_history_ext"
 
-	if time.Time.IsZero(r.PeriodFrom) {
+	if !time.Time.IsZero(r.PeriodFrom) {
 		logParams["period_from"] = r.PeriodFrom
 		params["period_from"] = r.PeriodFrom.Format("02.01.2006")
 	}
 
-	if time.Time.IsZero(r.PeriodTo) {
+	if !time.Time.IsZero(r.PeriodTo) {
 		logParams["period_to"] = r.PeriodTo
 		params["period_to"] = r.PeriodTo.Format("02.01.2006")
 	}

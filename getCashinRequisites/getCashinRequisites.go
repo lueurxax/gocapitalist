@@ -1,4 +1,4 @@
-package getBatchInfo
+package getCashinRequisites
 
 import (
 	"gocapitalist/internal"
@@ -6,15 +6,15 @@ import (
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type GetCashinRequisites struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/get_cashin_requisites
+func (b *GetCashinRequisites) Get() (*responses.GetCashinRequisites, error) {
+	data, errResponse := new(responses.GetCashinRequisites), new(responses.ErrorResponse)
 
-	httpParams, logParams := request.Params()
+	httpParams, logParams := (&requests.GetCashinRequisites{}).Params()
 	for k, v := range b.Auth.ParamsForAuth {
 		httpParams[k] = v
 	}

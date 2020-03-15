@@ -35,5 +35,10 @@ func (r *AddPaymentNotification) Params() (map[string]string, map[string]interfa
 		params["language"] = string(r.Language)
 	}
 
+	if r.Document != "" {
+		logParams["document"] = r.Document
+		params["document"] = r.Document
+	}
+
 	return params, logParams
 }

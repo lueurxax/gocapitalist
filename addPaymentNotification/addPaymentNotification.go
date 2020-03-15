@@ -1,4 +1,4 @@
-package getBatchInfo
+package addPaymentNotification
 
 import (
 	"gocapitalist/internal"
@@ -6,13 +6,13 @@ import (
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type AddPaymentNotification struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/add_payment_notification
+func (b *AddPaymentNotification) Get(request requests.AddPaymentNotification) (*responses.AddPaymentNotification, error) {
+	data, errResponse := new(responses.AddPaymentNotification), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
 	for k, v := range b.Auth.ParamsForAuth {

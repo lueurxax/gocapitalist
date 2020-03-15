@@ -20,12 +20,12 @@ func (r *DocumentsSearch) Params() (map[string]string, map[string]interface{}) {
 	logParams["operation"] = "documents_search"
 	params["operation"] = "documents_search"
 
-	if time.Time.IsZero(r.BeginDate) {
+	if !time.Time.IsZero(r.BeginDate) {
 		logParams["beginDate"] = r.BeginDate
 		params["beginDate"] = r.BeginDate.Format("02.01.2006")
 	}
 
-	if time.Time.IsZero(r.EndDate) {
+	if !time.Time.IsZero(r.EndDate) {
 		logParams["endDate"] = r.EndDate
 		params["endDate"] = r.EndDate.Format("02.01.2006")
 	}

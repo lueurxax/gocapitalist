@@ -1,4 +1,4 @@
-package getBatchInfo
+package documentsSearch
 
 import (
 	"gocapitalist/internal"
@@ -6,13 +6,13 @@ import (
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type DocumentsSearch struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/documents_search
+func (b *DocumentsSearch) Get(request requests.DocumentsSearch) (*responses.DocumentsSearch, error) {
+	data, errResponse := new(responses.DocumentsSearch), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
 	for k, v := range b.Auth.ParamsForAuth {

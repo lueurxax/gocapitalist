@@ -1,4 +1,4 @@
-package getBatchInfo
+package isVerifiedAccount
 
 import (
 	"gocapitalist/internal"
@@ -6,13 +6,13 @@ import (
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type IsVerifiedAccount struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/is_verified_account
+func (b *IsVerifiedAccount) Get(request requests.IsVerifiedAccount) (*responses.IsVerifiedAccount, error) {
+	data, errResponse := new(responses.IsVerifiedAccount), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
 	for k, v := range b.Auth.ParamsForAuth {

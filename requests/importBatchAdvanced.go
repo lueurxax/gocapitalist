@@ -33,9 +33,12 @@ func (r *ImportBatchAdvanced) Params() (map[string]string, map[string]interface{
 	if r.FilepathToCSV != "" {
 		CSV, err := ioutil.ReadFile(r.FilepathToCSV)
 		if err != nil {
-			return params, logParams, err
+			return nil, nil, err
 		}
 		signedCSV, err := signer.Sign(r.FilepathToKey, r.KeyLogin, r.KeyPassword, CSV)
+		if err != nil {
+			return nil, nil, err
+		}
 		logParams["batch"] = CSV
 		params["batch"] = string(CSV)
 

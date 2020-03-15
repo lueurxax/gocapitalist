@@ -1,23 +1,26 @@
-package getBatchInfo
+package getDocumentHistoryExt
 
 import (
+	"fmt"
 	"gocapitalist/internal"
 	"gocapitalist/requests"
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type GetDocumentHistoryExt struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/get_documents_history_ext
+func (b *GetDocumentHistoryExt) Get(request requests.DocumentHistory) (*responses.DocumentHistory, error) {
+	data, errResponse := new(responses.DocumentHistory), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
 	for k, v := range b.Auth.ParamsForAuth {
 		httpParams[k] = v
 	}
+
+	fmt.Println(httpParams)
 
 	b.Logger.Debug("make request", httpParams["operation"], logParams, nil)
 

@@ -10,7 +10,7 @@ type ImportBatchAdvanced struct {
 	*internal.BaseClient
 }
 
-// https://www.admitad.com/en/developers/doc/api_ru/methods/public/currency_exchange_rate/
+// https://capitalist.net/developers/api/page/import_batch_advanced
 func (b *ImportBatchAdvanced) Import(request requests.ImportBatchAdvanced) (*responses.ImportBatchAdvanced, error) {
 	data, errResponse := new(responses.ImportBatchAdvanced), new(responses.ErrorResponse)
 
