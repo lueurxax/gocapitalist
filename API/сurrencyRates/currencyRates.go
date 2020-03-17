@@ -1,7 +1,7 @@
 package сurrencyRates
 
 import (
-	"gocapitalist/internal"
+    "gocapitalist/internal"
 	"gocapitalist/requests"
 	"gocapitalist/responses"
 )

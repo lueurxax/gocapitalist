@@ -15,9 +15,9 @@ import (
 	"gocapitalist/API/profileGetVerificationCode"
 	"gocapitalist/API/registerEmailConfirm"
 	"gocapitalist/API/registerInvitee"
+	"gocapitalist/API/сurrencyRates"
 	"gocapitalist/defaults"
 	"gocapitalist/internal"
-	"gocapitalist/сurrencyRates"
 )
 
 type AClient struct {
