@@ -1,4 +1,4 @@
-package createAccount
+package registerEmailConfirm
 
 import (
 	"gocapitalist/internal"
@@ -6,18 +6,15 @@ import (
 	"gocapitalist/responses"
 )
 
-type CreateAccount struct {
+type RegisterEmailConfirm struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/create_account
-func (b *CreateAccount) New(request requests.CreateAccount) (*responses.CreateAccount, error) {
-	data, errResponse := new(responses.CreateAccount), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/registration_email_confirm
+func (b *RegisterEmailConfirm) Register(request requests.RegistrationEmailConfirm) (*responses.Mystery, error) {
+	data, errResponse := new(responses.Mystery), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
-	for k, v := range b.Auth.ParamsForAuth {
-		httpParams[k] = v
-	}
 
 	b.Logger.Debug("make request", httpParams["operation"], logParams, nil)
 

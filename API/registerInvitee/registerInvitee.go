@@ -1,4 +1,4 @@
-package addPaymentNotification
+package registerInvitee
 
 import (
 	"gocapitalist/internal"
@@ -6,13 +6,13 @@ import (
 	"gocapitalist/responses"
 )
 
-type AddPaymentNotification struct {
+type RegisterInvitee struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/add_payment_notification
-func (b *AddPaymentNotification) Get(request requests.AddPaymentNotification) (*responses.AddPaymentNotification, error) {
-	data, errResponse := new(responses.AddPaymentNotification), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/register_invitee
+func (b *RegisterInvitee) Register(request requests.RegisterInvitee) (*responses.RegisterInvitee, error) {
+	data, errResponse := new(responses.RegisterInvitee), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
 	for k, v := range b.Auth.ParamsForAuth {

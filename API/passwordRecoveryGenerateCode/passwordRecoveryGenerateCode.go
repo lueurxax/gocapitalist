@@ -1,26 +1,20 @@
-package getDocumentHistoryExt
+package passwordRecoveryGenerateCode
 
 import (
-	"fmt"
 	"gocapitalist/internal"
 	"gocapitalist/requests"
 	"gocapitalist/responses"
 )
 
-type GetDocumentHistoryExt struct {
+type PasswordRecoveryGenerateCode struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_documents_history_ext
-func (b *GetDocumentHistoryExt) Get(request requests.DocumentHistory) (*responses.DocumentHistory, error) {
-	data, errResponse := new(responses.DocumentHistory), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/profile_change_email
+func (b *PasswordRecoveryGenerateCode) Generate(request requests.PasswordRecoveryGenerateCode) (*responses.Mystery, error) {
+	data, errResponse := new(responses.Mystery), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
-	for k, v := range b.Auth.ParamsForAuth {
-		httpParams[k] = v
-	}
-
-	fmt.Println(httpParams)
 
 	b.Logger.Debug("make request", httpParams["operation"], logParams, nil)
 
@@ -47,5 +41,4 @@ func (b *GetDocumentHistoryExt) Get(request requests.DocumentHistory) (*response
 	b.Logger.Debug("success request", httpParams["operation"], logParams, nil)
 
 	return data, nil
-
 }

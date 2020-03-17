@@ -1,4 +1,4 @@
-package getAccounts
+package profileChangeEmail
 
 import (
 	"gocapitalist/internal"
@@ -6,15 +6,15 @@ import (
 	"gocapitalist/responses"
 )
 
-type GetAccounts struct {
+type ProfileChangeEmail struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_accounts
-func (b *GetAccounts) Get() (*responses.GetAccounts, error) {
-	data, errResponse := new(responses.GetAccounts), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/profile_change_email
+func (b *ProfileChangeEmail) Change(request requests.ProfileChangeEmail) (*responses.Mystery, error) {
+	data, errResponse := new(responses.Mystery), new(responses.ErrorResponse)
 
-	httpParams, logParams := (&requests.GetAccounts{}).Params()
+	httpParams, logParams := request.Params()
 	for k, v := range b.Auth.ParamsForAuth {
 		httpParams[k] = v
 	}
@@ -44,5 +44,4 @@ func (b *GetAccounts) Get() (*responses.GetAccounts, error) {
 	b.Logger.Debug("success request", httpParams["operation"], logParams, nil)
 
 	return data, nil
-
 }

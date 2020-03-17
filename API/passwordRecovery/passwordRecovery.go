@@ -1,4 +1,4 @@
-package getBatchInfo
+package passwordRecovery
 
 import (
 	"gocapitalist/internal"
@@ -6,18 +6,15 @@ import (
 	"gocapitalist/responses"
 )
 
-type BatchInfo struct {
+type PasswordRecovery struct {
 	*internal.BaseClient
 }
 
-// https://capitalist.net/developers/api/page/get_batch_info
-func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo, error) {
-	data, errResponse := new(responses.GetBatchInfo), new(responses.ErrorResponse)
+// https://capitalist.net/developers/api/page/password_recovery
+func (b *PasswordRecovery) Recover(request requests.PasswordRecovery) (*responses.Mystery, error) {
+	data, errResponse := new(responses.Mystery), new(responses.ErrorResponse)
 
 	httpParams, logParams := request.Params()
-	for k, v := range b.Auth.ParamsForAuth {
-		httpParams[k] = v
-	}
 
 	b.Logger.Debug("make request", httpParams["operation"], logParams, nil)
 
@@ -44,5 +41,4 @@ func (b *BatchInfo) Get(request requests.GetBatchInfo) (*responses.GetBatchInfo,
 	b.Logger.Debug("success request", httpParams["operation"], logParams, nil)
 
 	return data, nil
-
 }
