@@ -7,7 +7,7 @@ import (
 	"errors"
 	"github.com/hugmouse/gocapitalist/requests"
 	"github.com/hugmouse/gocapitalist/responses"
-	"gopkg.in/resty.v1"
+	"gopkg.in/resty.v2"
 	"math/big"
 	"time"
 )
