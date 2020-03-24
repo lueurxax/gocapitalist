@@ -5,9 +5,9 @@ import (
 	"crypto/rsa"
 	"encoding/hex"
 	"errors"
-	"github.com/go-resty/resty"
 	"gocapitalist/requests"
 	"gocapitalist/responses"
+	"gopkg.in/resty.v1"
 	"math/big"
 	"time"
 )
