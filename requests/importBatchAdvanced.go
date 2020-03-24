@@ -12,6 +12,7 @@ type ImportBatchAdvanced struct {
 	AccountEUR    string
 	AccountBTC    string
 	FilepathToCSV string
+	PlainCSV      []byte
 	FilepathToKey string
 	KeyPassword   string
 	KeyLogin      string
@@ -35,6 +36,17 @@ func (r *ImportBatchAdvanced) Params() (map[string]string, map[string]interface{
 		if err != nil {
 			return nil, nil, err
 		}
+		signedCSV, err := signer.Sign(r.FilepathToKey, r.KeyLogin, r.KeyPassword, CSV)
+		if err != nil {
+			return nil, nil, err
+		}
+		logParams["batch"] = CSV
+		params["batch"] = string(CSV)
+
+		logParams["verification_data"] = base64.StdEncoding.EncodeToString(signedCSV)
+		params["verification_data"] = base64.StdEncoding.EncodeToString(signedCSV)
+	} else if len(r.PlainCSV) > 0 {
+		CSV := r.PlainCSV
 		signedCSV, err := signer.Sign(r.FilepathToKey, r.KeyLogin, r.KeyPassword, CSV)
 		if err != nil {
 			return nil, nil, err
