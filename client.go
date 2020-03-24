@@ -17,7 +17,7 @@ import (
 	"github.com/hugmouse/gocapitalist/API/registerInvitee"
 	"github.com/hugmouse/gocapitalist/API/сurrencyRates"
 	"github.com/hugmouse/gocapitalist/defaults"
-	"gocapitalist/internal"
+	"github.com/hugmouse/gocapitalist/internal"
 )
 
 type AClient struct {

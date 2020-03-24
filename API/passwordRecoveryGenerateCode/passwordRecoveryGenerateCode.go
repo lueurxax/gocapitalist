@@ -1,9 +1,9 @@
 package passwordRecoveryGenerateCode
 
 import (
-	"gocapitalist/internal"
-	"gocapitalist/requests"
-	"gocapitalist/responses"
+	"github.com/hugmouse/gocapitalist/internal"
+	"github.com/hugmouse/gocapitalist/requests"
+	"github.com/hugmouse/gocapitalist/responses"
 )
 
 type PasswordRecoveryGenerateCode struct {

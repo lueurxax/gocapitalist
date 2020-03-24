@@ -3,7 +3,7 @@ package addPaymentNotification
 import (
 	"github.com/hugmouse/gocapitalist/requests"
 	"github.com/hugmouse/gocapitalist/responses"
-	"gocapitalist/internal"
+	"github.com/hugmouse/gocapitalist/internal"
 )
 
 type AddPaymentNotification struct {
