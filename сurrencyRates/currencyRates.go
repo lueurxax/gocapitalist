@@ -1,8 +1,8 @@
 package сurrencyRates
 
 import (
-	"gocapitalist/internal"
-	"gocapitalist/responses"
+	"github.com/hugmouse/gocapitalist/internal"
+	"github.com/hugmouse/gocapitalist/responses"
 )
 
 type Currency struct {

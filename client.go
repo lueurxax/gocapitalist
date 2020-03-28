@@ -1,9 +1,9 @@
-package gocapitalist
+package github
 
 import (
-	"gocapitalist/defaults"
-	"gocapitalist/internal"
-	"gocapitalist/сurrencyRates"
+	"github.com/hugmouse/gocapitalist/defaults"
+	"github.com/hugmouse/gocapitalist/internal"
+	"github.com/hugmouse/gocapitalist/сurrencyRates"
 )
 
 type AClient struct {
@@ -20,7 +20,7 @@ func New(url string, logger internal.Logger, mc internal.MetricsCollector) *ACli
 	}
 	bc := internal.NewBaseClient(url, logger, mc)
 	return &AClient{
-		Currency: сurrencyRates.Currency{bc},
+		Currency: сurrencyRates.Currency{BaseClient: bc},
 		bc:       bc}
 }
 

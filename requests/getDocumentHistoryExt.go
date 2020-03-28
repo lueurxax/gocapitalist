@@ -1,7 +1,7 @@
 package requests
 
 import (
-	"gocapitalist/enums"
+	"github.com/hugmouse/gocapitalist/enums"
 	"time"
 )
 
