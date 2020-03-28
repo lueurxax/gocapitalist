@@ -1,9 +1,9 @@
 package getAccounts
 
 import (
-	"github.com/hugmouse/gocapitalist/internal"
-	"github.com/hugmouse/gocapitalist/requests"
-	"github.com/hugmouse/gocapitalist/responses"
+	"github.com/lueurxax/gocapitalist/internal"
+	"github.com/lueurxax/gocapitalist/requests"
+	"github.com/lueurxax/gocapitalist/responses"
 )
 
 type GetAccounts struct {

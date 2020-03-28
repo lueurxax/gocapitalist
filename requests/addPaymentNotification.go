@@ -1,7 +1,7 @@
 package requests
 
 import (
-	"github.com/hugmouse/gocapitalist/enums"
+	"github.com/lueurxax/gocapitalist/enums"
 )
 
 type AddPaymentNotification struct {

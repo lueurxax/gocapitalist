@@ -2,7 +2,7 @@ package requests
 
 import (
 	"encoding/base64"
-	"github.com/hugmouse/gocapitalist/signer"
+	"github.com/lueurxax/gocapitalist/signer"
 	"io/ioutil"
 )
 

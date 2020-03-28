@@ -6,8 +6,8 @@ import (
 	"encoding/hex"
 	"errors"
 	"github.com/go-resty/resty/v2"
-	"github.com/hugmouse/gocapitalist/requests"
-	"github.com/hugmouse/gocapitalist/responses"
+	"github.com/lueurxax/gocapitalist/requests"
+	"github.com/lueurxax/gocapitalist/responses"
 	"math/big"
 	"time"
 )
