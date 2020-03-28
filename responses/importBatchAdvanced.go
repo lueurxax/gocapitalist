@@ -1,5 +1,7 @@
 package responses
 
+import "encoding/json"
+
 type ImportBatchAdvanced struct {
 	Code    int       `json:"code"`
 	Message string    `json:"message"`
@@ -24,9 +26,9 @@ type NettoSummary struct {
 	BTC string `json:"BTC"`
 }
 type DataBatch struct {
-	ID           string        `json:"id"`
-	Summary      Summary       `json:"summary"`
-	Fee          Fee           `json:"fee"`
-	NettoSummary NettoSummary  `json:"nettoSummary"`
-	Errors       []interface{} `json:"errors"`
+	ID           string            `json:"id"`
+	Summary      Summary           `json:"summary"`
+	Fee          Fee               `json:"fee"`
+	NettoSummary NettoSummary      `json:"nettoSummary"`
+	Errors       []json.RawMessage `json:"errors"`
 }
